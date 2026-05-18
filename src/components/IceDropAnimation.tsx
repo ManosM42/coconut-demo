@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 80;
-const BASE = "/frames/Ice_block_falling_into_glass_202605172216_";
+const BASE = "/frames/Video Project 6_";
 
 function pad(n: number) {
   return String(n).padStart(3, "0");

@@ -71,11 +71,12 @@ function Contact() {
               <span className="font-mono text-xs tracking-[0.2em] uppercase text-white/60">Follow</span>
               <div className="flex gap-3">
                 {[Instagram, Facebook, Music2].map((Icon, i) => (
-                  <a key={i} href="https://instagram.com/coconutbarmalia" target="_blank" rel="noopener noreferrer"
+                  <a key={i} href="https://www.instagram.com/coconutmalia/" target="_blank" rel="noopener noreferrer"
                      className="p-3 rounded-full border border-white/20 hover:border-neon-pink hover:glow-pink-sm hover:text-neon-pink transition-all"
                      aria-label="Social media link">
                     <Icon className="w-4 h-4" />
                   </a>
+                  
                 ))}
               </div>
             </motion.div>
