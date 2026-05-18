@@ -75,16 +75,25 @@ function Index() {
             <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("vibe.desc")}</p>
           </motion.div>
         </div>
-        {/* ICE DROP SCROLL ANIMATION */}
         <motion.div {...fadeUp} className="max-w-7xl mx-auto px-5 md:px-10 mb-16">
           <IceDropAnimation />
         </motion.div>
+        {/* GALLERY */}
+      <section className="relative py-24 md:py-32 bg-radial-pink">
+        <div className="max-w-7xl mx-auto px-5 md:px-10">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
+            <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("gallery.desc")}</p>
+          </motion.div>
+        </div>
+      </section>
 
         <motion.div {...fadeUp} className="pl-5 md:pl-10">
           <GallerySlider />
         </motion.div>
       </section>
 
+      
       {/* INFO STRIP */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-5 md:px-10 grid md:grid-cols-3 gap-5">
@@ -115,7 +124,7 @@ function Index() {
                 <Link to="/menu" className="block group">
                   <div className="glass rounded-2xl p-7 h-full hover:-translate-y-1 hover:glow-pink-sm hover:border-neon-pink/40 transition-all duration-300">
                     <div className="w-12 h-12 rounded-full mb-5 opacity-80 group-hover:opacity-100 transition"
-                         style={{ background: c.color, boxShadow: `0 0 30px ${c.color}` }} />
+                      style={{ background: c.color, boxShadow: `0 0 30px ${c.color}` }} />
                     <h3 className="font-display text-2xl tracking-wider mb-4">{c.title}</h3>
                     <ul className="space-y-1.5 mb-6">
                       {c.items.map((it) => (

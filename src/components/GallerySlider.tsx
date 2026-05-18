@@ -1,15 +1,17 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
+import slide1 from "@/assets/bar-crowd.jpg";
+import slide2 from "@/assets/bar-interior.jpg";
+import slide3 from "@/assets/bar-cocktail.jpg";
+import slide4 from "@/assets/bar-shisha.jpg";
+import slide5 from "@/assets/bar-night.jpg";
 
 const slides = [
-  { title: "Friday Night", grad: "from-[#ff2d78] via-[#c026d3] to-[#0a0a0f]" },
-  { title: "Poolside Sunset", grad: "from-[#f5c842] via-[#ff2d78] to-[#0a0a0f]" },
-  { title: "Cocktail Hour", grad: "from-[#38bdf8] via-[#c026d3] to-[#0a0a0f]" },
-  { title: "Shisha Lounge", grad: "from-[#f5c842] via-[#c026d3] to-[#0a0a0f]" },
-  { title: "DJ Set", grad: "from-[#c026d3] via-[#ff2d78] to-[#0a0a0f]" },
-  { title: "After Hours", grad: "from-[#38bdf8] via-[#ff2d78] to-[#0a0a0f]" },
-  { title: "Open Air", grad: "from-[#ff2d78] via-[#38bdf8] to-[#0a0a0f]" },
-  { title: "Tropical Vibes", grad: "from-[#c026d3] via-[#f5c842] to-[#0a0a0f]" },
+  { title: "Friday Night", image: slide1 },
+  { title: "Interior", image: slide2 },
+  { title: "Cocktail Hour", image: slide3 },
+  { title: "Shisha Lounge", image: slide4 },
+  { title: "Open Air", image: slide5 },
 ];
 
 export function GallerySlider() {
@@ -26,7 +28,8 @@ export function GallerySlider() {
       <div className="flex gap-5">
         {slides.map((s, i) => (
           <div key={i} className="shrink-0 basis-[80%] md:basis-[40%] lg:basis-[32%]">
-            <div className={`relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br ${s.grad}`}>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+              <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_60%)]" />
               <div className="absolute inset-0 grain" />
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent">

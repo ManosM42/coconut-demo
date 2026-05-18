@@ -11,6 +11,7 @@ const en = {
     cta2: "Find Us",
   },
   vibe: { title: "THE VIBE", desc: "White furniture under neon skies. Coconut Bar is Malia's open-air playground — tropical cocktails, premium shisha, and DJs spinning the soundtrack to your Cretan nights." },
+  gallery: { title: "Our Gallery", desc: "Explore our collection of images from Coconut Bar." },
   info: {
     cocktails: "Crafted Cocktails", cocktailsDesc: "Over 50 signature mixes",
     shisha: "Premium Shisha", shishaDesc: "A wide selection of flavours",
