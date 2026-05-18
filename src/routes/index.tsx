@@ -79,6 +79,10 @@ function Index() {
         <motion.div {...fadeUp} className="max-w-7xl mx-auto px-5 md:px-10 mb-16">
           <IceDropAnimation />
         </motion.div>
+        <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
+            <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("gallery.desc")}</p>
+          </motion.div>
         <motion.div {...fadeUp} className="pl-5 md:pl-10">
           <GallerySlider />
         </motion.div>
