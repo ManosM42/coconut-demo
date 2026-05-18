@@ -29,11 +29,11 @@ function Index() {
   ];
 
   return (
-    <>
+    <div className="bg-[#0a0a0f]">
       {/* HERO */}
       <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
         <img src={bar} alt="Coconut Bar interior at night" className="absolute inset-0 w-full h-full object-cover scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-[#0a0a0f]" />
         <div className="absolute inset-0 grain" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,10,15,0.6)_80%)]" />
 
@@ -68,7 +68,8 @@ function Index() {
       </section>
 
       {/* VIBE */}
-      <section className="relative py-24 md:py-32 bg-radial-pink">
+      <section className="relative py-24 md:py-32"
+        style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("vibe.title")}</h2>
@@ -78,8 +79,14 @@ function Index() {
         <motion.div {...fadeUp} className="max-w-7xl mx-auto px-5 md:px-10 mb-16">
           <IceDropAnimation />
         </motion.div>
-        {/* GALLERY */}
-      <section className="relative py-24 md:py-32 bg-radial-pink">
+        <motion.div {...fadeUp} className="pl-5 md:pl-10">
+          <GallerySlider />
+        </motion.div>
+      </section>
+
+      {/* GALLERY */}
+      <section className="relative py-24 md:py-32"
+        style={{ background: "linear-gradient(to bottom, #0a0a0f, #0d0d1a, #0a0a0f)" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
@@ -88,14 +95,9 @@ function Index() {
         </div>
       </section>
 
-        <motion.div {...fadeUp} className="pl-5 md:pl-10">
-          <GallerySlider />
-        </motion.div>
-      </section>
-
-      
       {/* INFO STRIP */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28"
+        style={{ background: "linear-gradient(to bottom, #0a0a0f, #150a1a, #0a0a0f)" }}>
         <div className="max-w-6xl mx-auto px-5 md:px-10 grid md:grid-cols-3 gap-5">
           {[
             { icon: Martini, t: t("info.cocktails"), d: t("info.cocktailsDesc") },
@@ -113,7 +115,8 @@ function Index() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28"
+        style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <motion.h2 {...fadeUp} className="font-display text-5xl md:text-7xl tracking-wider text-center mb-14">
             {t("offer.title")}
@@ -143,7 +146,8 @@ function Index() {
       </section>
 
       {/* MAP */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28"
+        style={{ background: "linear-gradient(to bottom, #0a0a0f, #0d0a15, #0a0a0f)" }}>
         <div className="max-w-6xl mx-auto px-5 md:px-10">
           <motion.h2 {...fadeUp} className="font-display text-5xl md:text-7xl tracking-wider text-center mb-10">
             {t("find.title")}
@@ -156,6 +160,6 @@ function Index() {
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
