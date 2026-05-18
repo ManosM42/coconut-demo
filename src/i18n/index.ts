@@ -52,26 +52,26 @@ const gr = {
   info: {
     cocktails: "Χειροποίητα Κοκτέιλ", cocktailsDesc: "Πάνω από 50 υπογραφές",
     shisha: "Premium Σίσα", shishaDesc: "Μεγάλη ποικιλία γεύσεων",
-    dj: "Live DJ Βραδιές", djDesc: "Κάθε Σαββατοκύριακο από τις 9μμ",
+    dj: "Live DJ Βραδιές", djDesc: "Κάθε Σαββατοκύριακο από τις 9ΜΜ",
   },
   offer: { title: "ΤΙ ΠΡΟΣΦΕΡΟΥΜΕ", see: "Όλο το Μενού" },
   cat: { cocktails: "Κοκτέιλ", mocktails: "Mocktails & Αναψυκτικά", shisha: "Σίσα", food: "Φαγητό & Σνακ" },
-  find: { title: "ΘΑ ΜΑΣ ΒΡΕΙΣ ΣΤΑ ΜΑΛΙΑ", addr: "Malia Beach Road, Μάλια 70007, Κρήτη, Ελλάδα" },
-  menuPage: { title: "ΤΟ ΜΕΝΟΥ ΜΑΣ", shishaNote: "Όλες οι σίσες ετοιμάζονται φρέσκες. Συνεδρία 60 λεπτών." },
+  find: { title: "ΒΡΕ ΜΑΣ ΣΤΑ ΜΑΛΙΑ", addr: "Malia Beach Road, Μάλια 70007, Κρήτη, Ελλάδα" },
+  menuPage: { title: "ΤΟ ΜΕΝΟΥ", shishaNote: "Όλες οι σίσες ετοιμάζονται φρέσκες. Συνεδρία 60 λεπτών." },
   exp: {
     title: "Η ΕΜΠΕΙΡΙΑ COCONUT",
     about: "Για το Bar",
     p1: "Γεννημένο στην καρδιά των Μαλίων, το Coconut Bar είναι εκεί που η ενέργεια του νησιού ζωντανεύει με το σούρουπο. Λευκοί τοίχοι, νέον φως και ο ήχος της μουσικής στον ζεστό κρητικό αέρα — δεν είναι απλώς ένα μπαρ, είναι αίσθηση.",
     p2: "Είτε για μια μεγάλη βραδιά κοκτέιλ, για σίσα με παρέα ή για χορό μέχρι την ανατολή, το Coconut έχει σχεδιαστεί γύρω από ένα πράγμα: τη δική σου τέλεια νύχτα.",
-    p3: "Ανοιχτά κάθε βράδυ από τις 7μμ. Χωρίς dress code — μόνο καλή διάθεση.",
+    p3: "Ανοιχτά κάθε βράδυ από τις 7ΜΜ. Χωρίς dress code — μόνο καλή διάθεση.",
     h1: "Τροπικό Design", h1d: "Λευκά έπιπλα, νέον φώτα και φοίνικες εμπνευσμένα από τα καλύτερα beach bars του κόσμου",
     h2: "DJ Βραδιές", h2d: "Κάθε Παρασκευή και Σάββατο, resident και guest DJs αναλαμβάνουν δράση",
-    h3: "Χρυσή Ώρα", h3d: "Ξεκίνα τη βραδιά με το sunset happy hour — κοκτέιλ από €6, 7–9μμ",
+    h3: "Χρυσή Ώρα", h3d: "Ξεκίνα τη βραδιά με το sunset happy hour — κοκτέιλ από €6, 7–9ΜΜ",
     follow: "ΑΚΟΛΟΥΘΗΣΕ ΜΑΣ",
     hours: "Ωράριο Λειτουργίας",
   },
   contact: {
-    title: "ΕΠΙΚΟΙΝΩΝΙΑ", location: "Τοποθεσία", phone: "Τηλέφωνο", email: "Email", hours: "Ωράριο",
+    title: "ΕΠΙΚΟΙΝΩΝΙΑ", location: "Τοποθεσία", phone: "Τηλέφωνο", email: "Email", hours: "Ώρες",
   },
   hours: { weekday: "Δευ–Πεμ", fri: "Παρ–Σάβ", sun: "Κυριακή" },
   footer: { rights: "Όλα τα δικαιώματα διατηρούνται." },
@@ -80,10 +80,15 @@ const gr = {
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     resources: { en: { translation: en }, gr: { translation: gr } },
-    lng: typeof window !== "undefined" ? localStorage.getItem("lang") || "en" : "en",
+    lng: "en",
     fallbackLng: "en",
     interpolation: { escapeValue: false },
   });
+}
+
+if (typeof window !== "undefined") {
+  const savedLang = localStorage.getItem("lang");
+  if (savedLang) i18n.changeLanguage(savedLang);
 }
 
 export default i18n;
