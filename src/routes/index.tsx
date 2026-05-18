@@ -87,17 +87,7 @@ function Index() {
           <GallerySlider />
         </motion.div>
       </section>
-
-      {/* GALLERY */}
-      <section className="relative py-24 md:py-32"
-        style={{ background: "linear-gradient(to bottom, #0a0a0f, #0d0d1a, #0a0a0f)" }}>
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
-            <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("gallery.desc")}</p>
-          </motion.div>
-        </div>
-      </section>
+  
 
       {/* INFO STRIP */}
       <section className="py-20 md:py-28"
