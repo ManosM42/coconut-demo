@@ -21,11 +21,12 @@ export function Footer() {
                className="p-2.5 rounded-full glass hover:glow-pink-sm hover:border-neon-pink/50 transition-all"
                aria-label="Social link">
               <Icon className="w-4 h-4" />
+              
             </a>
           ))}
         </div>
         <p className="font-mono text-[10px] tracking-widest text-white/40 uppercase">
-          © 2025 Coconut Bar Malia. {t("footer.rights")}
+          © 2026 Coconut Bar Malia. {t("footer.rights")}
         </p>
       </div>
     </footer>
