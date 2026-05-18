@@ -83,6 +83,7 @@ if (!i18n.isInitialized) {
     lng: "en",
     fallbackLng: "en",
     interpolation: { escapeValue: false },
+    initImmediate: false,  // ← αυτό διορθώνει το SSR πρόβλημα
   });
 }
 
