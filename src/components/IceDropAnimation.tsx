@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 80;
-const BASE = "/src/frames/Ice_block_falling_into_glass_202605172216_";
+const BASE = "/frames/Ice_block_falling_into_glass_202605172216_";
 
 function pad(n: number) {
   return String(n).padStart(3, "0");
