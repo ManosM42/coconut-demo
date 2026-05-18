@@ -77,19 +77,14 @@ const gr = {
   footer: { rights: "Όλα τα δικαιώματα διατηρούνται." },
 };
 
-if (!i18n.isInitialized) {
-  i18n.use(initReactI18next).init({
-    resources: { en: { translation: en }, gr: { translation: gr } },
-    lng: "en",
-    fallbackLng: "en",
-    interpolation: { escapeValue: false },
-    initImmediate: false,  // ← αυτό διορθώνει το SSR πρόβλημα
-  });
-}
+const instance = i18n.use(initReactI18next);
 
-if (typeof window !== "undefined") {
-  const savedLang = localStorage.getItem("lang");
-  if (savedLang) i18n.changeLanguage(savedLang);
-}
+export const initPromise = instance.init({
+  resources: { en: { translation: en }, gr: { translation: gr } },
+  lng: localStorage.getItem("lang") || "en",
+  fallbackLng: "en",
+  interpolation: { escapeValue: false },
+  initImmediate: false,
+});
 
 export default i18n;
