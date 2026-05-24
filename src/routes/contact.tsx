@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Music2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { MapEmbed } from "@/components/MapEmbed";
 
@@ -22,6 +22,33 @@ const fadeUp = {
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.6 },
 };
+
+// TikTok icon (not in lucide-react)
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+    </svg>
+  );
+}
+
+const socials = [
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/coconutmalia/",
+  },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/CoconutMalia/",
+  },
+  {
+    icon: TikTokIcon,
+    label: "TikTok",
+    href: "https://www.tiktok.com/@coconutmalia",
+  },
+];
 
 function Contact() {
   const { t } = useTranslation();
@@ -66,21 +93,27 @@ function Contact() {
                 <div className="text-sm text-white/70 leading-relaxed">{body}</div>
               </motion.div>
             ))}
+
             <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}
               className="glass rounded-2xl p-6 sm:col-span-2 flex items-center gap-4">
               <span className="font-mono text-xs tracking-[0.2em] uppercase text-white/60">Follow</span>
               <div className="flex gap-3">
-                {[Instagram, Facebook, Music2].map((Icon, i) => (
-                  <a key={i} href="https://www.instagram.com/coconutmalia/" target="_blank" rel="noopener noreferrer"
-                     className="p-3 rounded-full border border-white/20 hover:border-neon-pink hover:glow-pink-sm hover:text-neon-pink transition-all"
-                     aria-label="Social media link">
+                {socials.map(({ icon: Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="p-3 rounded-full border border-white/20 hover:border-neon-pink hover:glow-pink-sm hover:text-neon-pink transition-all"
+                  >
                     <Icon className="w-4 h-4" />
                   </a>
-                  
                 ))}
               </div>
             </motion.div>
           </div>
+
           <motion.div {...fadeUp}>
             <MapEmbed className="h-full min-h-[500px]" />
           </motion.div>

@@ -6,6 +6,7 @@ import bar from "@/assets/bar-interior.jpg";
 import { IceDropAnimation } from "@/components/IceDropAnimation";
 import { GallerySlider } from "@/components/GallerySlider";
 import { MapEmbed } from "@/components/MapEmbed";
+import { Reviews } from "@/components/Reviews";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -80,14 +81,20 @@ function Index() {
           <IceDropAnimation />
         </motion.div>
         <motion.div {...fadeUp} className="text-center mb-14">
-            <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
-            <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("gallery.desc")}</p>
-          </motion.div>
+          <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
+          <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("gallery.desc")}</p>
+        </motion.div>
         <motion.div {...fadeUp} className="pl-5 md:pl-10">
           <GallerySlider />
         </motion.div>
       </section>
-  
+
+      {/* REVIEWS */}
+      <section style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
+        <motion.div {...fadeUp}>
+          <Reviews />
+        </motion.div>
+      </section>
 
       {/* INFO STRIP */}
       <section className="py-20 md:py-28"

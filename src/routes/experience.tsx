@@ -88,13 +88,13 @@ function Experience() {
         <div className="max-w-6xl mx-auto px-5 md:px-10">
           <motion.div {...fadeUp} className="text-center mb-10">
             <h2 className="font-display text-4xl md:text-6xl tracking-wider">{t("exp.follow")}</h2>
-            <a href="https://instagram.com/coconutbarmalia" target="_blank" rel="noopener noreferrer"
-               className="inline-block mt-3 font-mono text-sm text-neon-pink hover:underline">@coconutbarmalia</a>
+            <a href="https://www.instagram.com/coconutmalia/" target="_blank" rel="noopener noreferrer"
+               className="inline-block mt-3 font-mono text-sm text-neon-pink hover:underline">@coconutmalia</a>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
             {grads.map((g, i) => (
               <motion.a key={i} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.05 }}
-                href="https://instagram.com/coconutbarmalia" target="_blank" rel="noopener noreferrer"
+                href="https://www.instagram.com/coconutmalia/" target="_blank" rel="noopener noreferrer"
                 className={`relative aspect-square rounded-xl overflow-hidden bg-gradient-to-br ${g} group`}>
                 <div className="absolute inset-0 grain" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 flex items-center justify-center transition-all">
