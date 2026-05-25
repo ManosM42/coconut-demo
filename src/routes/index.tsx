@@ -30,7 +30,9 @@ function Index() {
   ];
 
   return (
-    <div className="bg-[#0a0a0f]">
+    // overflow-x-hidden εδώ + στο wrapper κλειδώνει το horizontal scroll
+    <div className="bg-[#0a0a0f] overflow-x-hidden w-full">
+
       {/* HERO */}
       <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
         <img src={bar} alt="Coconut Bar interior at night" className="absolute inset-0 w-full h-full object-cover scale-105" />
@@ -69,7 +71,7 @@ function Index() {
       </section>
 
       {/* VIBE */}
-      <section className="relative py-24 md:py-32"
+      <section className="relative py-24 md:py-32 overflow-hidden"
         style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <motion.div {...fadeUp} className="text-center mb-14">
@@ -77,27 +79,32 @@ function Index() {
             <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("vibe.desc")}</p>
           </motion.div>
         </div>
-        <motion.div {...fadeUp} className="max-w-7xl mx-auto px-5 md:px-10 mb-16">
+
+        {/* IceDropAnimation — clipped so it can't overflow */}
+        <motion.div {...fadeUp} className="max-w-7xl mx-auto px-5 md:px-10 mb-16 overflow-hidden">
           <IceDropAnimation />
         </motion.div>
-        <motion.div {...fadeUp} className="text-center mb-14">
+
+        <motion.div {...fadeUp} className="text-center mb-14 px-5">
           <h2 className="font-display text-5xl md:text-7xl tracking-wider">{t("gallery.title")}</h2>
           <p className="font-serif italic text-white/70 mt-4 max-w-2xl mx-auto text-lg">{t("gallery.desc")}</p>
         </motion.div>
-        <motion.div {...fadeUp} className="pl-5 md:pl-10">
+
+        {/* GallerySlider — wrapped in overflow-hidden so cards don't leak outside */}
+        <motion.div {...fadeUp} className="overflow-hidden pl-5 md:pl-10">
           <GallerySlider />
         </motion.div>
       </section>
 
       {/* REVIEWS */}
-      <section style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
+      <section className="overflow-hidden" style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
         <motion.div {...fadeUp}>
           <Reviews />
         </motion.div>
       </section>
 
       {/* INFO STRIP */}
-      <section className="py-20 md:py-28"
+      <section className="py-20 md:py-28 overflow-hidden"
         style={{ background: "linear-gradient(to bottom, #0a0a0f, #150a1a, #0a0a0f)" }}>
         <div className="max-w-6xl mx-auto px-5 md:px-10 grid md:grid-cols-3 gap-5">
           {[
@@ -116,7 +123,7 @@ function Index() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="py-20 md:py-28"
+      <section className="py-20 md:py-28 overflow-hidden"
         style={{ background: "linear-gradient(to bottom, #0a0a0f, #12051a, #0a0a0f)" }}>
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <motion.h2 {...fadeUp} className="font-display text-5xl md:text-7xl tracking-wider text-center mb-14">
@@ -147,7 +154,7 @@ function Index() {
       </section>
 
       {/* MAP */}
-      <section className="py-20 md:py-28"
+      <section className="py-20 md:py-28 overflow-hidden"
         style={{ background: "linear-gradient(to bottom, #0a0a0f, #0d0a15, #0a0a0f)" }}>
         <div className="max-w-6xl mx-auto px-5 md:px-10">
           <motion.h2 {...fadeUp} className="font-display text-5xl md:text-7xl tracking-wider text-center mb-10">
