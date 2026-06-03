@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 const reviews = [
   {
     name: "Flóra M.",
@@ -53,24 +55,15 @@ function ReviewCard({
   return (
     <div className="flex-none w-[300px] rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 relative overflow-hidden transition-colors duration-300 hover:border-neon-pink/30">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,45,120,0.06),transparent_60%)] pointer-events-none" />
-
-      {/* Stars */}
       <div className="flex gap-1 mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
-          <span key={i} className="text-gold text-[13px]">
-            ★
-          </span>
+          <span key={i} className="text-gold text-[13px]">★</span>
         ))}
       </div>
-
-      {/* Quote */}
       <p className="text-[13.5px] leading-relaxed text-white/70 mb-5 min-h-[72px]">
         "{text}"
       </p>
-
       <div className="h-px bg-white/[0.08] mb-5" />
-
-      {/* Author */}
       <div className="flex items-center gap-3">
         <div className="w-9 h-9 rounded-full bg-neon-pink/20 border border-neon-pink/30 flex items-center justify-center text-neon-pink text-[11px] font-medium flex-shrink-0">
           {initials}
@@ -87,7 +80,15 @@ function ReviewCard({
 }
 
 export function Reviews() {
-  const doubled = [...reviews, ...reviews];
+  const all = [...reviews, ...reviews, ...reviews];
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const pause = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
+  };
+  const resume = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = "running";
+  };
 
   return (
     <section className="w-full py-20 overflow-hidden">
@@ -112,27 +113,45 @@ export function Reviews() {
         </div>
       </div>
 
-      {/* Scrolling track */}
-      <div className="relative">
+      {/* Ticker */}
+      <div
+        className="relative"
+        // ✅ pause on mouse down (click hold), resume on release
+        onMouseDown={pause}
+        onMouseUp={resume}
+        onMouseLeave={resume}
+        // ✅ pause on touch hold, resume on lift
+        onTouchStart={pause}
+        onTouchEnd={resume}
+      >
+        {/* Fade masks */}
         <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none bg-gradient-to-r from-[#0a0a0f] to-transparent" />
         <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none bg-gradient-to-l from-[#0a0a0f] to-transparent" />
 
         <div
-          className="flex gap-5 w-max animate-reviews-scroll"
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.animationPlayState =
-              "paused";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLDivElement).style.animationPlayState =
-              "running";
+          ref={trackRef}
+          className="flex gap-5 py-2"
+          style={{
+            width: "max-content",
+            animation: "reviews-ticker 40s linear infinite",
+            willChange: "transform",
           }}
         >
-          {doubled.map((r, i) => (
+          {all.map((r, i) => (
             <ReviewCard key={i} {...r} />
           ))}
         </div>
       </div>
+
+      <style>{`
+        @keyframes reviews-ticker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(calc(-100% / 3)); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .reviews-ticker { animation: none !important; }
+        }
+      `}</style>
     </section>
   );
 }
